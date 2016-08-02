@@ -8,14 +8,10 @@
 
 <%= form_tag '/', method: :get do %>
   <div class="form-group">
-    <%= label_tag :my_city %>
+    <%= label_tag 'City' %>
     <%= text_field_tag :my_city %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :my_state %>
+    <%= label_tag 'State' %>
     <%= text_field_tag :my_state %>
-  </div>
-  <div class="form-group">
     <%= submit_tag 'Get the weather!', class: "btn btn-default" %>
   </div>
 <% end %>
@@ -30,7 +26,7 @@
       <h5>Date: <%= forecast['date'] %></h5>
       <h5>High: <%= forecast['high'] %></h5>
       <h5>Low: <%= forecast['low'] %></h5>
-      <h5>Text: <%= forecast['text'] %></h5>
+      <h5><%= forecast['text'] %></h5>
       <br/>
   <% end %>
 <% end %>
