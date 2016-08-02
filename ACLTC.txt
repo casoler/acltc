@@ -1,0 +1,23 @@
+— ruby uses mathematical rules when evaluating expressions
+  puts 1 + 2 * 3 => 7, not 9
+  puts (1 + 2) * 3 => 9
+
+— whatever ‘gets’ command receives, it is treated as a string
+  puts ‘enter something:’
+  x = gets.chomp # remove the newline character
+  puts ‘here is what you typed in’
+  puts x  # x is always a string
+
+— array = [“c”, “a”, “t”]
+  array.sample ==> returns a random element of the array
+  array.join ==> “cat”
+
+— ruby-doc.org - most authoritative documentation on Ruby
+
+- puts array ==> array[0]
+                 array[1]
+                 array[2]
+
+- p array ==> [array[0], array[1], array[2]] 
+
+- ‘stack level too deep’ - infinite loop

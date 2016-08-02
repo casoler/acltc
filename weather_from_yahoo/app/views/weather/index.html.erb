@@ -1,0 +1,36 @@
+<% flash.each do |name, message| %>
+  <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+    <%= message.html_safe %> 
+  </div>
+<% end %>
+
+<%= form_tag '/', method: :get do %>
+  <div class="form-group">
+    <%= label_tag :my_city %>
+    <%= text_field_tag :my_city %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :my_state %>
+    <%= text_field_tag :my_state %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag 'Get the weather!', class: "btn btn-default" %>
+  </div>
+<% end %>
+
+<% unless @city_data["query"]["count"] == 0 %>
+  <h3><%= @my_city %>, <%= @my_state %></h3>
+
+  <h4>Temperature as of <%= @current_stats %>: <%= @current_temperature %></h4>
+
+  <h4>Five-day forecast:</h4>
+  <% @five_day_forecast.each do |forecast| %>
+      <h5>Date: <%= forecast['date'] %></h5>
+      <h5>High: <%= forecast['high'] %></h5>
+      <h5>Low: <%= forecast['low'] %></h5>
+      <h5>Text: <%= forecast['text'] %></h5>
+      <br/>
+  <% end %>
+<% end %>

@@ -1,0 +1,2 @@
+module LuckyHelper
+end

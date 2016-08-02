@@ -1,0 +1,10 @@
+<h2>Food Inspections</h2> 
+
+<% @inspections.each do |inspection| %>
+  <h3>Name: <%= inspection["aka_name"] %></h3>
+  <h4>Facility Type: <%= inspection["facility_type"] %></h4>
+  <h4>Inspection Date: <%= inspection["inspection_date"] %></h4>
+  <h4>Results: <%= inspection["results"] %></h4>
+  <h4>Risk: <%= inspection["risk"] %></h4>
+  <br/>
+<% end %>

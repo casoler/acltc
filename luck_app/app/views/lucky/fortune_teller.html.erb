@@ -1,0 +1,10 @@
+<style>
+  .fortune {
+    font-style: italic;
+  }
+</style>
+
+<h2>The Lucky Fortune Teller</h2>
+<h3>It's always right!</h3>
+
+<p>Your fortune for <%= Time.now.strftime("%H:%M") %>:  <span class='fortune'><%= @fortune %></span></p>
