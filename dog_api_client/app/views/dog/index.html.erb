@@ -1,0 +1,19 @@
+<div>
+  <%= link_to 'Add a new dog', '/dog/new' %>
+</div>
+
+<% dog_group = '' %>
+<% @dogs.each do |dog| %>
+  <div>
+    <% unless dog["group"] == dog_group %>
+      <br/><br/>
+      <%= dog["group"] %><br/>
+      <% dog_group = dog["group"] %>
+    <% end %>
+    <image src='<%= dog["image"] %>', width='75px'></image><br/>
+    -- <%= dog["breed"] %> 
+
+    <%= link_to 'Edit', "/dog/#{dog['ranking']}/edit" %>
+    <%= link_to 'Delete', "/dog/#{dog['ranking']}", method: :delete %>
+  </div>
+<% end %>

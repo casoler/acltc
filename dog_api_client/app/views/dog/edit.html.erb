@@ -1,0 +1,15 @@
+<h1>Update a breed:</h1>
+
+<%= form_tag "/dog/#{@dog['ranking']}", method: :patch do %>
+  <div>
+    <%= label_tag :breed %>
+    <%= text_field_tag :input_breed, @dog["breed"] %>
+  </div>
+  <div>
+    <%= label_tag :group %>
+    <%= text_field_tag :input_group, @dog["group"] %>
+  </div>
+  <div>
+    <%= submit_tag 'Update the breed' %>
+  </div>
+<% end %>
