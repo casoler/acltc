@@ -1,0 +1,15 @@
+<div ng-app="app">
+  {{ 1 + 1 }}
+
+  <div ng-controller="myTodos">
+    <div ng-repeat="task in todos">
+      <p ng-click="removeTask(task)">- {{ task }}</p>
+    </div>
+
+    <div>
+      <h3>Add a task</h3>
+      <input ng-model="newTask">
+      <button ng-click="addTask(newTask)">Add Task</button>
+    </div>
+  </div>
+</div>

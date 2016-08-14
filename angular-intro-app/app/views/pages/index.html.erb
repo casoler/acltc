@@ -1,0 +1,22 @@
+<div ng-app="app">
+  {{ 1 + 1 }}
+  <div ng-controller="stuffCtrl">
+    <p>{{ message }}</p>
+    <p>{{ anotherMessage }}</p>
+    <input ng-model="message">
+
+    <h2>AngularJS Reviews:</h2>
+    <p ng-repeat="review in reviews">{{ review }}</p>  <!-- each review will be wrapped in a p-tag -->
+
+    <div ng-repeat="review in reviews">
+      <p>{{ review }}</p>
+      <p>Sweet!</p>
+    </div>
+
+    <h3>Leave a review for Angular</h3>
+    <input ng-model="newReview">
+    <button ng-click="addReview(newReview)">Add Review</button>
+  </div>
+</div>
+
+
