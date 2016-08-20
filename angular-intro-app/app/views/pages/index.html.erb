@@ -6,16 +6,29 @@
     <input ng-model="message">
 
     <h2>AngularJS Reviews:</h2>
-    <p ng-repeat="review in reviews">{{ review }}</p>  <!-- each review will be wrapped in a p-tag -->
+    <!-- <p ng-repeat="review in reviews">{{ review }}</p>  --> <!-- each review will be wrapped in a p-tag --> 
 
-    <div ng-repeat="review in reviews">
-      <p>{{ review }}</p>
-      <p>Sweet!</p>
+    <div ng-repeat="review in reviews" ng-if="isPositiveReview(review.text)">
+      <p>{{ review.text }}</p>
+      <p>{{ review.rating }}</p>
+      <p>{{ review.reviewer }}</p>
     </div>
 
     <h3>Leave a review for Angular</h3>
-    <input ng-model="newReview">
-    <button ng-click="addReview(newReview)">Add Review</button>
+    <div>
+      <label>Review text:</label>
+      <input ng-model='newReviewText'>
+    </div>
+    <div>
+      <label>Review rating:</label>
+      <input ng-model='newReviewRating'>
+    </div>
+    <div>
+      <label>Review reviewer:</label>
+      <input ng-model='newReviewReviewer'>
+    </div>
+    <!-- <input ng-model="newReview"> -->
+    <button ng-click="addReview(newReviewText, newReviewRating, newReviewReviewer)">Add Review</button>
   </div>
 </div>
 

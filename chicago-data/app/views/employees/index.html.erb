@@ -1,0 +1,11 @@
+<div ng-app="myApp">
+  {{ 1 + 1 }}
+  <div ng-controller='myCtrl'>
+    <div>Number of employees: {{ employeeData.length }}</div>
+    <div ng-repeat="employee in employeeData | filter: employee.department='FIRE' | orderBy: 'employee.employee_annual_salary'">
+      {{ employee.name }}
+      {{ employee.department }}
+      {{ employee.employee_annual_salary | currency}}
+  </div>
+
+</div>

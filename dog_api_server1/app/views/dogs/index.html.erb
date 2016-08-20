@@ -1,0 +1,44 @@
+<div ng-app="app">
+  <div ng-controller="dogsCtrl" ng-init="setup()">
+
+  <div>
+    <h4>Total number of dogs: {{ dogs.length }}</h4>
+    Breed filter: <input ng-model="breedFilter" list='breeds'>
+    Group filter: <input ng-model="groupFilter" list='groups'>
+
+    <datalist id='breeds'>
+      <option ng-repeat='dog in dogs'>{{ dog.breed }}</option>
+    </datalist>
+
+    <datalist id='groups'>
+      <option ng-repeat='dog in dogs'>{{ dog.group }}</option>
+    </datalist>
+  </div>
+
+  <div>
+    <table border=1>
+      <tr>
+        <th ng-click="setOrderAttribute('breed')">Breed {{ getOrderIcon('breed') }}</th>
+        <th ng-click="setOrderAttribute('group')">Group {{ getOrderIcon('group') }}</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="dog in dogs | orderBy:orderAttribute:isOrderDescending | filter: {breed: breedFilter} | filter: {group: groupFilter}">
+        <td>{{ dog.breed }}</td>
+        <td>{{ dog.group }}</td>
+        <td><a href="#" ng-click="deleteDog(dog)">Delete</a></td>
+      </tr>
+    </table>
+  </div>
+   
+    <h3>Add a new dog</h3>
+    <ul id="errors">
+      <li ng-repeat="error in errors">{{ error }}</li>
+    </ul>
+    
+    <div>
+      Breed: <input ng-model='newDogBreed'>      
+      Dog Group: <input ng-model='newDogGroup'>
+      <button ng-click="addDog(newDogBreed, newDogGroup)">Add Dog</button>
+    </div>
+  </div>
+</div>

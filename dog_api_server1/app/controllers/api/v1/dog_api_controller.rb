@@ -1,6 +1,6 @@
 class Api::V1::DogApiController < ApplicationController
   def index
-    @dogs = Dog.all
+    @dogs = Dog.all    #.order([:dog_group, :breed])
     render 'index.json.jbuilder'
   end
 
@@ -10,8 +10,11 @@ class Api::V1::DogApiController < ApplicationController
       dog_group: params[:dog_group],
       image: params[:image]
     )
-    @dog.save
-    render 'show.json.jbuilder'
+    if @dog.save
+      render 'show.json.jbuilder'
+    else
+      render json: { errors: @dog.errors.full_messages }, status: 422
+    end
   end
 
   def show

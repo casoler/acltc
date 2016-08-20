@@ -1,0 +1,20 @@
+// Place all the styles related to the dogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.strike {
+  text-decoration: line-through;
+}
+
+.ng-enter, .ng-move{
+  -webkit-animation: rollOut 1s;
+  -moz-animation: rollOut 1s;
+  -o-animation: rollOut 1s;
+  animation: rollOut 1s;
+}
+
+.ng-leave{
+  -webkit-animation: rubberBand 1s;
+  -moz-animation: rubberBand 1s;
+  -o-animation: rubberBand 1s;
+  animation: rubberBand 1s;
+}

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/' => "dogs#index"
+
   namespace :api do 
     namespace :v1 do
       get '/dog_api' => 'dog_api#index'
