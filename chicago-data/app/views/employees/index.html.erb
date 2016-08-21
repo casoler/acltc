@@ -1,11 +1,11 @@
 <div ng-app="myApp">
-  {{ 1 + 1 }}
   <div ng-controller='myCtrl'>
     <div>Number of employees: {{ employeeData.length }}</div>
-    <div ng-repeat="employee in employeeData | filter: employee.department='FIRE' | orderBy: 'employee.employee_annual_salary'">
-      {{ employee.name }}
-      {{ employee.department }}
-      {{ employee.employee_annual_salary | currency}}
+    <div ng-repeat="employee in employeeData | filter: employee.department='FIRE' | orderBy: sorterFunc">
+      <h3>{{ employee.name }}</h3>
+      <h4 ng-click="showTitle(employee)">Department: {{ employee.department }} </h4>
+      <div ng-if="showEmployeeTitle"> {{employee.job_titles}} </div>
+      <h4>Salary: {{ employee.employee_annual_salary | currency }}</h4>
   </div>
 
 </div>
